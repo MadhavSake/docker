@@ -9,31 +9,5 @@ pipeline {
             }
         }
     }
-        
-    // Building Docker images
-    stage('Building image') {
-      steps{
-        script {
-          dockerImage = docker.build registry
-        }
-      }
-    }
-    
-    stage('Copy Artifact') {
-           steps { 
-                   sh 'pwd'
-		   sh 'cp -r target/*.jar docker'
-           }
-        }
-         
-     stage('Build docker image') {
-           steps {
-               script {         
-                 def customImage = docker.build('sakemadhav/project', "./docker")
-                 docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
-                 customImage.push("${env.BUILD_NUMBER}")
-                 }                     
-           }
-        }
-	  }
+  }
 }
