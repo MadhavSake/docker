@@ -41,7 +41,7 @@ pipeline {
     stage('Docker Run') {
      steps{
          script {
-                sh 'sudo docker run -p 8081:5000 -d --rm --name myfirstApp1 656096645154.dkr.ecr.ap-south-1.amazonaws.com/myawesome-repo'
+                sh 'sudo docker run -p 8096:5000 -d --rm --name myfirstApp1 656096645154.dkr.ecr.ap-south-1.amazonaws.com/myawesome-repo'
             }
       }
     }
